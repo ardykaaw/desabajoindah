@@ -20,123 +20,129 @@
     <link href="{{ asset('/css/home.css') }}" rel="stylesheet">
     <style>
         body {
-    font-family: 'Montserrat', sans-serif;
-}
+            font-family: 'Montserrat', sans-serif;
+        }
 
-.navbar {
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+        .navbar {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-.navbar-brand, .nav-link {
-    color: #fff !important;
-}
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
 
-.nav-link:hover {
-    color: #f0f0f0 !important;
-}
+        .nav-link:hover {
+            color: #f0f0f0 !important;
+        }
 
-.masthead {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    color: white;
-    text-align: center;
-}
+        .masthead {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
 
-#bgvideo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Tambahkan opacity untuk video background */
-    z-index: -1;
-}
+        #bgvideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-     /* Tambahkan overlay gelap untuk meningkatkan keterbacaan teks */
-    z-index: 0;
-}
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Tambahkan overlay gelap untuk meningkatkan keterbacaan teks */
+            z-index: 0;
+        }
 
-.masthead .content {
-    position: relative;
-    z-index: 1;
-}
+        .masthead .content {
+            position: relative;
+            z-index: 1;
+        }
 
-.masthead-heading {
-    font-size: 3rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Tambahkan bayangan teks untuk meningkatkan keterbacaan */
-}
+        .masthead-heading {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Tambahkan bayangan teks untuk meningkatkan keterbacaan */
+        }
 
-.divider-custom {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1.5rem 0;
-}
+        .masthead-subheading {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Tambahkan bayangan teks untuk meningkatkan keterbacaan */
+        }
 
-.divider-custom-line {
-    width: 5rem;
-    height: 0.25rem;
-    background-color: white;
-}
+        .masthead img {
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5)); /* Tambahkan bayangan pada logo untuk meningkatkan keterbacaan */
+        }
 
-.divider-custom-icon {
-    font-size: 2rem;
-    margin: 0 1rem;
-}
+        .divider-custom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
 
-.card {
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: white;
-}
+        .divider-custom-line {
+            width: 5rem;
+            height: 0.25rem;
+            background-color: white;
+        }
 
-.card h3 {
-    text-align: center;
-}
+        .divider-custom-icon {
+            font-size: 2rem;
+            margin: 0 1rem;
+        }
 
-.footer {
-    background-color: #6a11cb;
-    color: white;
-    padding: 2rem 0;
-}
+        .card {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
 
-.footer a {
-    color: white;
-    text-decoration: none;
-}
+        .card h3 {
+            text-align: center;
+        }
 
-.footer a:hover {
-    text-decoration: underline;
-}
+        .footer {
+            background-color: #6a11cb;
+            color: white;
+            padding: 2rem 0;
+        }
 
-marquee {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem;
-    border-radius: 5px;
-    color: white;
-}
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
 
-@media (min-width: 992px) {
-    .masthead {
-        height: 100vh;
-    }
+        .footer a:hover {
+            text-decoration: underline;
+        }
 
-    .masthead-heading {
-        font-size: 4rem;
-    }
-}
+        marquee {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem;
+            border-radius: 5px;
+            color: white;
+        }
 
+        @media (min-width: 992px) {
+            .masthead {
+                height: 100vh;
+            }
+
+            .masthead-heading {
+                font-size: 4rem;
+            }
+        }
     </style>
 </head>
 
@@ -153,6 +159,7 @@ marquee {
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#home">Home</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#gallery">Gallery</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#footer">Contact</a></li>
                     @guest
                     <li class="nav-item mx-0 mx-lg-1">
@@ -190,7 +197,7 @@ marquee {
             </div>
         </div>
     </header>
-    
+
     <!-- About Section-->
     <section class="page-section mb-0" id="about">
         <div class="container">
@@ -219,21 +226,56 @@ marquee {
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-8">
                     <div class="card p-3">
                         <h3>Keterangan Desa</h3>
-                        <p class="text-justify">{{$desa_nama}} terletak di Kecamatan Soropia, Kabupaten Konawe, Sulawesi Tenggara. Desa ini dikenal dengan keindahan alamnya yang mempesona, terutama pesona bawah laut yang menjadi daya tarik wisatawan. Sebagai salah satu desa di pesisir Sulawesi Tenggara, masyarakat Bajo Indah sebagian besar berprofesi sebagai nelayan. Selain itu, desa ini juga mulai mengembangkan sektor pariwisata bahari, dengan menyediakan fasilitas untuk kegiatan snorkeling dan diving.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card p-3">
-                        <img src="{{ URL::to('/') }}/img/balai.png" alt="FOTO KANTOR DESA" class="img-fluid rounded mb-3">
-                        <img src="{{ URL::to('/') }}/img/asset1.jpeg" alt="Desa Bajo Indah" class="img-fluid rounded">
+                        <p class="text-justify">{{$desa_nama}} terletak di Kecamatan Soropia, Kabupaten Konawe, Sulawesi Tenggara. Desa ini dikenal dengan keindahan alamnya yang mempesona, terutama pesona bawah laut yang menjadi daya tarik wisatawan. Sebagai salah satu desa di pesisir Sulawesi Tenggara, masyarakat Bajo Indah sebagian besar berprofesi sebagai nelayan. Selain itu, desa ini juga mulai mengembangkan sektor pariwisata bahari, dengan menyediakan fasilitas untuk kegiatan snorkeling dan diving. {{$desa_nama}} juga memiliki berbagai kegiatan budaya yang menarik, seperti festival tahunan dan pertunjukan seni lokal. Selain itu, desa ini juga terkenal dengan produk kerajinan tangan yang unik dan berkualitas tinggi.</p>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Gallery Section-->
+    <section class="page-section" id="gallery">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Gallery</h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Carousel-->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ asset('img/asset1.jpeg') }}" class="d-block w-100" alt="Gallery Image 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('img/balai.png') }}" class="d-block w-100" alt="Gallery Image 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('img/foto.jpeg') }}" class="d-block w-100" alt="Gallery Image 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer-->
     <footer class="footer text-center" id="footer">
         <div class="container">
