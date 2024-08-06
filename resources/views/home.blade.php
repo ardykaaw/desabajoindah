@@ -21,6 +21,7 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .navbar {
@@ -62,7 +63,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3); /* Tambahkan overlay gelap untuk meningkatkan keterbacaan teks */
+            background: rgba(0, 0, 0, 0.3);
             z-index: 0;
         }
 
@@ -73,15 +74,17 @@
 
         .masthead-heading {
             font-size: 3rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Tambahkan bayangan teks untuk meningkatkan keterbacaan */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 2s ease-in-out;
         }
 
         .masthead-subheading {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Tambahkan bayangan teks untuk meningkatkan keterbacaan */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 2s ease-in-out;
         }
 
         .masthead img {
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5)); /* Tambahkan bayangan pada logo untuk meningkatkan keterbacaan */
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
         }
 
         .divider-custom {
@@ -143,6 +146,75 @@
                 font-size: 4rem;
             }
         }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .dark-mode .navbar, .dark-mode .footer {
+            background-color: #1f1f1f;
+        }
+
+        .dark-mode .nav-link {
+            color: #e0e0e0 !important;
+        }
+
+        .dark-mode .divider-custom-line, .dark-mode .divider-custom-icon {
+            background-color: #e0e0e0;
+            color: #e0e0e0;
+        }
+
+        .dark-mode .card {
+            background: linear-gradient(45deg, #3a3a3a, #2c2c2c);
+            color: #e0e0e0;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #6a11cb;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 1000;
+            display: none; /* hidden by default */
+        }
+
+        .scroll-to-top:hover {
+            background-color: #2575fc;
+        }
     </style>
 </head>
 
@@ -160,6 +232,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#home">Home</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#gallery">Gallery</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#location">Location</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#footer">Contact</a></li>
                     @guest
                     <li class="nav-item mx-0 mx-lg-1">
@@ -189,7 +262,7 @@
                 <div class="divider-custom-line"></div>
             </div>
             <marquee>
-                <p class="masthead-subheading font-weight-light mb-0">{{$desa_nama}} Kecamatan Soropia Kabupaten Konaewe</p>
+                <p class="masthead-subheading font-weight-light mb-0">{{$desa_nama}} Kecamatan Soropia Kabupaten Konawe</p>
             </marquee>
             <div class="d-flex justify-content-center text-white">
                 <div id="clock" style="margin-right: 5px;"></div>
@@ -276,6 +349,7 @@
         </div>
     </section>
 
+    <!-- Location Section-->
     <section class="page-section" id="location">
         <div class="container">
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Location</h2>
@@ -309,6 +383,8 @@
             </div>
         </div>
     </footer>
+    <!-- Scroll to Top Button-->
+    <button onclick="scrollToTop()" class="scroll-to-top"><i class="fas fa-arrow-up"></i></button>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
@@ -369,6 +445,31 @@
                 console.error('Error loading video: ', e);
             }, false);
         });
+    </script>
+    <!-- Scroll to Top Script-->
+    <script>
+        window.onscroll = function() {
+            toggleScrollToTopButton();
+        };
+
+        function toggleScrollToTopButton() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.querySelector('.scroll-to-top').style.display = "block";
+            } else {
+                document.querySelector('.scroll-to-top').style.display = "none";
+            }
+        }
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <!-- Dark Mode Toggle Script-->
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
     </script>
 </body>
 
