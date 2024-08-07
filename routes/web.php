@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AspirasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'HomeController@index')->name('home.index');
+Route::get('/', [AspirasiController::class, 'index'])->name('home.index');
 
 Route::get('/laporan-apbdes', 'AnggaranRealisasiController@laporan_apbdes')->name('laporan-apbdes');
 Route::get('/layanan-surat', 'SuratController@layanan_surat')->name('layanan-surat');
@@ -95,6 +96,9 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::get('/chart-surat/{id}', 'SuratController@chartSurat')->name('chart-surat');
 });
+
+Route::post('/aspirasi', [AspirasiController::class, 'submit'])->name('aspirasi.submit');
+Route::get('/', [AspirasiController::class, 'index']);
 
 Route::fallback(function () {
     abort(404);

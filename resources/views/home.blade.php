@@ -215,6 +215,20 @@
         .scroll-to-top:hover {
             background-color: #2575fc;
         }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-body {
+            padding: 1.5rem;
+        }
+        .form-control {
+            border-radius: 10px;
+        }
+        .btn-primary {
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -233,6 +247,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#gallery">Gallery</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#location">Location</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#aspirasi">Aspirasi</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#footer">Contact</a></li>
                     @guest
                     <li class="nav-item mx-0 mx-lg-1">
@@ -360,6 +375,58 @@
             </div>
             <div class="map-responsive">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7942.769748597126!2d122.6437658!3d-3.9252694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d98eb0da86b56af%3A0x5f28f06e564406f2!2sDesa%20Bajo%20Indah!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aspirasi Section -->
+    <section class="page-section" id="aspirasi">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Aspirasi Masyarakat</h2>
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <!-- Form Aspirasi -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Tulis Aspirasi Anda</h5>
+                            <form id="aspirasiForm" action="{{ route('aspirasi.submit') }}" method="POST">
+                                @csrf
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Anda" required>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" id="aspirasi" name="aspirasi" rows="3" placeholder="Tulis aspirasi Anda di sini..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Kirim Aspirasi</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Daftar Aspirasi -->
+                    <h4 class="mb-4">Aspirasi Terkini</h4>
+                    @foreach($aspirasi as $item)
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">{{ $item->nama }}</h5>
+                                    <small class="text-muted">{{ $item->created_at->diffForHumans() }}</small>
+                                </div>
+                                <p class="card-text">{{ $item->aspirasi }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                    
+                    <!-- Pagination -->
+                    <div class="d-flex justify-content-center mt-4">
+                        {{ $aspirasi->links() }}
+                    </div>
+                </div>
             </div>
         </div>
     </section>
