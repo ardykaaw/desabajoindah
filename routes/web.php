@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AspirasiController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use App\Http\Controllers\AspirasiController;
 
 
 Route::get('/', [AspirasiController::class, 'index'])->name('home.index');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/laporan-apbdes', 'AnggaranRealisasiController@laporan_apbdes')->name('laporan-apbdes');
 Route::get('/layanan-surat', 'SuratController@layanan_surat')->name('layanan-surat');
@@ -98,7 +100,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 });
 
 Route::post('/aspirasi', [AspirasiController::class, 'submit'])->name('aspirasi.submit');
-Route::get('/', [AspirasiController::class, 'index']);
+Route::get('/', [AspirasiController::class, 'index'])->name('home.index');
 
 Route::fallback(function () {
     abort(404);

@@ -90,7 +90,7 @@ $desa = App\Desa::find(1);
                         </li>
                         @endguest
                         <li class="nav-item">
-                            <a class="nav-link nav-link-icon" href="{{ route('home.index') }}">
+                            <a class="nav-link nav-link-icon" href="{{ route('home') }}">
                                 <i class="fas fa-home"></i>
                                 <span class="nav-link-inner--text">Beranda</span>
                             </a>
