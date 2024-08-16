@@ -9,6 +9,7 @@ use App\PemerintahanDesa;
 use App\Penduduk;
 use App\Surat;
 use App\Video;
+use App\Aspirasi; // Pastikan model Aspirasi sudah diimport dengan namespace yang benar
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,6 +23,7 @@ class HomeController extends Controller
         $gallery = Gallery::where('slider', 1)->latest()->get();
         $galleries = array();
         $videos = Video::all();
+        $aspirasi = Aspirasi::paginate(10); // Mengambil data aspirasi dengan paginasi
 
         foreach (Gallery::where('slider', null)->get() as $key => $value) {
             $gambar = [
@@ -49,7 +51,7 @@ class HomeController extends Controller
             return strlen($a['created_at']) <=> strlen($b['created_at']);
         });
 
-        return view('home', compact('surat', 'desa', 'gallery', 'berita', 'pemerintahan_desa', 'galleries'));
+        return view('home', compact('surat', 'desa', 'gallery', 'berita', 'pemerintahan_desa', 'galleries', 'aspirasi'));
     }
 
     public function dashboard()
