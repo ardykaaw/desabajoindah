@@ -341,17 +341,28 @@
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{ asset('img/asset1.jpeg') }}" class="d-block w-100" alt="Gallery Image 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('img/balai.png') }}" class="d-block w-100" alt="Gallery Image 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('img/foto.jpeg') }}" class="d-block w-100" alt="Gallery Image 3">
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ asset('img/galeri1.jpeg') }}" class="d-block w-100 carousel-img" alt="Gallery Image 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('img/galeri3.jpeg') }}" class="d-block w-100 carousel-img" alt="Gallery Image 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ asset('img/galeri2.jpeg') }}" class="d-block w-100 carousel-img" alt="Gallery Image 3">
+                        </div>
                     </div>
                 </div>
+                
+                <!-- Tambahkan CSS berikut ke dalam file CSS Anda -->
+                <style>
+                    .carousel-img {
+                        height: 700px; /* Atur tinggi yang Anda inginkan untuk semua gambar */
+                        object-fit: cover; /* Ini memastikan gambar memenuhi area dengan proporsi yang sesuai */
+                    }
+                </style>
+                
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
