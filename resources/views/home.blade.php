@@ -8,7 +8,7 @@
     <meta name="author" content="" />
     <title>Beranda</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/img/icon.png" />
+    <link href="{{ asset('storage/sultra.png') }}" rel="icon" type="image/png">
     <!-- Font Awesome icons (free version)-->
     <link href="{{ asset('/js/plugins/nucleo/css/nucleo.css') }}" rel="stylesheet">
     <link href="{{ asset('/js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
@@ -407,21 +407,23 @@
                             </form>
                         </div>
                     </div>
-
+    
                     <!-- Daftar Aspirasi -->
                     <h4 class="mb-4">Aspirasi Terkini</h4>
-                    @foreach($aspirasi as $item)
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="card-title">{{ $item->nama }}</h5>
-                                    <small class="text-muted">{{ $item->created_at->diffForHumans() }}</small>
+                    <div class="aspirasi-list">
+                        @foreach($aspirasi as $item)
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <h5 class="card-title">{{ $item->nama }}</h5>
+                                        <small class="text-muted">{{ $item->created_at->diffForHumans() }}</small>
+                                    </div>
+                                    <p class="card-text">{{ $item->aspirasi }}</p>
                                 </div>
-                                <p class="card-text">{{ $item->aspirasi }}</p>
                             </div>
-                        </div>
-                    @endforeach
-                    
+                        @endforeach
+                    </div>
+    
                     <!-- Pagination -->
                     <div class="d-flex justify-content-center mt-4">
                         {{ $aspirasi->links() }}
@@ -430,6 +432,15 @@
             </div>
         </div>
     </section>
+    
+    <!-- Tambahkan CSS berikut ke dalam file CSS Anda -->
+    <style>
+        .aspirasi-list {
+            max-height: 250px; /* Sesuaikan tinggi untuk menampilkan sekitar 4 aspirasi */
+            overflow-y: auto;
+        }
+    </style>
+    
 
     <!-- Footer-->
     <footer class="footer text-center" id="footer">

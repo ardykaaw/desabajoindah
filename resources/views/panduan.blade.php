@@ -17,14 +17,14 @@
 @endsection
 
 @section('header')
-<h1 class="text-white text-muted">PANDUAN PENGGUNAAN APLIKASI SIMAPEDA</h1>
+<h1 class="text-white text-muted">PANDUAN PENGGUNAAN APLIKASI UHO 2024</h1>
 @endsection
 
 @section('content')
 <div class="row">
     <div class="col-md">
         <div class="embed-responsive embed-responsive-16by9 rounded">
-            <iframe class="embed-responsive-item" src="{{ url('storage/Panduan Simapeda.mp4') }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+            <iframe class="embed-responsive-item" src="{{ url('storage/Panduan UHO 2024.mp4') }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
         </div>
     </div>
 </div>
