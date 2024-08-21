@@ -142,4 +142,18 @@ class PendudukController extends Controller
         $penduduk->delete();
         return redirect()->back()->with('success','Penduduk berhasil diperbarui');
     }
+    /**
+     * Cetak daftar penduduk.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function cetakPenduduk()
+    {
+        // Ambil semua data penduduk dari database
+        $penduduks = Penduduk::all();
+
+        // Kembali ke view untuk mencetak data
+        return view('penduduk.cetak', compact('penduduks'));
+    }
+
 }

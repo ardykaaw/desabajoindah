@@ -21,9 +21,11 @@
                             @if (auth()->user()->role == "admin")
                             <div class="mb-3">
                                 <a href="{{ route('penduduk.create') }}" class="btn btn-success" title="Tambah"><i class="fas fa-plus"></i> Tambah Penduduk</a>
+                                <a href="{{ route('penduduk.cetak') }}" class="btn btn-primary" title="Cetak"><i class="fas fa-print"></i> Cetak Daftar Penduduk</a>
                             </div>
                             @endif
                         </div>
+                        
                         <form class="navbar-search mt-3 cari-none" action="{{ URL::current() }}" method="GET">
                             <div class="form-group mb-0">
                                 <div class="input-group input-group-alternative">

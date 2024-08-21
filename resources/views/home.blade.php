@@ -358,7 +358,7 @@
                 <!-- Tambahkan CSS berikut ke dalam file CSS Anda -->
                 <style>
                     .carousel-img {
-                        height: 700px; /* Atur tinggi yang Anda inginkan untuk semua gambar */
+                        height: 650px; /* Atur tinggi yang Anda inginkan untuk semua gambar */
                         object-fit: cover; /* Ini memastikan gambar memenuhi area dengan proporsi yang sesuai */
                     }
                 </style>
