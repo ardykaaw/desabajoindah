@@ -120,10 +120,10 @@ $desa = App\Desa::find(1);
                                     <i class="fas fa-fw fa-chart-pie text-info"></i>
                                     <span class="nav-link-inner--text">Statistik Penduduk</span>
                                 </a>
-                                <a class="dropdown-item @if (Request::segment(1) == 'laporan-apbdes') active @endif" href="{{ route('laporan-apbdes') }}">
+                                {{-- <a class="dropdown-item @if (Request::segment(1) == 'laporan-apbdes') active @endif" href="{{ route('laporan-apbdes') }}">
                                     <i class="fas fa-fw fa-money-check-alt text-success"></i>
                                     <span class="nav-link-inner--text">Laporan APBDes</span>
-                                </a>
+                                </a> --}}
                             </div>
                         </li>
                         @auth
@@ -141,9 +141,9 @@ $desa = App\Desa::find(1);
                                 <a class="dropdown-item" href="{{ route('dusun.index') }}">
                                     <i class="fas fa-fw fa-map-marker-alt text-yellow"></i>Dusun
                                 </a>
-                                <a class="dropdown-item" href="{{ url('anggaran-realisasi?jenis=pendapatan&tahun='.date('Y')) }}">
+                                {{-- <a class="dropdown-item" href="{{ url('anggaran-realisasi?jenis=pendapatan&tahun='.date('Y')) }}">
                                     <i class="fas fa-fw fa-coins text-success"></i>APBDes
-                                </a>
+                                </a> --}}
                                 {{-- <a class="dropdown-item" href="{{ route('surat.index') }}">
                                     <i class="fas fa-fw fa-file-alt text-primary"></i> Kelola Surat
                                 </a> --}}

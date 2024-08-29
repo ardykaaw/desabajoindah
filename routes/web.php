@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AspirasiController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PendudukController;
+use App\Http\Controllers\DusunController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,9 @@ Route::get('/statistik-penduduk/show', 'GrafikController@show')->name('statistik
 Route::get('/anggaran-realisasi-cart', 'AnggaranRealisasiController@cart')->name('anggaran-realisasi.cart');
 Route::post('/cetak-surat/{id}/{slug}', 'CetakSuratController@store')->name('cetak-surat.store');
 Route::get('/penduduk/cetak', [PendudukController::class, 'cetakPenduduk'])->name('penduduk.cetak');
+Route::get('/dusun/{id}', [DusunController::class, 'show'])->name('dusun.show');
+
+
 
 
 

@@ -44,6 +44,25 @@ class DusunController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $dusun = Dusun::with(['rumahs'])->findOrFail($id);
+
+        // Logika untuk menghitung jumlah rumah dengan jamban dan tanpa jamban, serta penggunaan air dari gunung
+        $totalRumah = $dusun->rumahs->count();
+        $rumahDenganJamban = $dusun->rumahs->where('jamban', 'Ya')->count();
+        $rumahTanpaJamban = $totalRumah - $rumahDenganJamban;
+        $rumahDenganAirGunung = $dusun->rumahs->where('air_gunung', 'Ya')->count();
+        
+        return view('dusun.show', compact('dusun', 'totalRumah', 'rumahDenganJamban', 'rumahTanpaJamban', 'rumahDenganAirGunung'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Dusun  $dusun

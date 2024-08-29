@@ -25,17 +25,6 @@
                             </div>
                             @endif
                         </div>
-                        
-                        <form class="navbar-search mt-3 cari-none" action="{{ URL::current() }}" method="GET">
-                            <div class="form-group mb-0">
-                                <div class="input-group input-group-alternative">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
-                                    </div>
-                                    <input class="form-control" placeholder="Cari ...." type="text" name="cari" value="{{ request('cari') }}">
-                                </div>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -113,22 +102,23 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Form Pencarian -->
+            <div class="col-xl-12 col-md-12 col-sm-12 mb-3">
+                <form action="{{ URL::current() }}" method="GET" class="form-inline float-right">
+                    <div class="input-group">
+                        <input type="text" name="cari" class="form-control" placeholder="Cari Nama Penduduk..." value="{{ request('cari') }}">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> Cari</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- End of Form Pencarian -->
+            
         </div>
     </div>
 </div>
-@endsection
-
-@section('form-search')
-<form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto" action="{{ URL::current() }}" method="GET">
-    <div class="form-group mb-0">
-        <div class="input-group input-group-alternative">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-search"></i></span>
-            </div>
-            <input class="form-control" placeholder="Cari ...." type="text" name="cari" value="{{ request('cari') }}">
-        </div>
-    </div>
-</form>
 @endsection
 
 @section('content')
