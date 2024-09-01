@@ -114,32 +114,35 @@
 <div class="row mt-8">
     <div class="col-md-4">
         <div class="card p-3 text-white" style="background-color: rebeccapurple;">
-            <h1 class="text-white">Visi</h1>
-            <ul>
-                <li>Mewujudkan Desa Tasik Serai Barat sebagai salah satu desa sejahtera di kabupaten Bengkalis</li>
-            </ul>
-            <h1 class="text-white">Misi</h1>
-            <ul>
-                <li>Meningkatkan tata pemerintahan yang demokratis, transparan, akuntabel, efisien dan efektif</li>
-                <li>Meningkatkan sumber daya manusia</li>
-                <li>Meningkatkan perekonomian pedesaan</li>
-                <li>Meningkatkan pembangunan infrastruktur pedesaan yang terarah dan berkualitas</li>
-                <li>Meningkatkan peran kelembagaan dan masyarakat desa dalam mendorong pembangunan desa</li>
-            </ul>
+            <h3 class="text-white">Visi</h3>
+                        <ul>
+                            <li>Menjadikan {{$desa_nama}} sebagai desa cerdas, mandiri dan handal di bidang perikanan, melalui program pemerintah daerah untuk membentuk masyarakat Bajo Indah menuju masyarakat sejahtera pada tahun 2024</li>
+                        </ul>
+                        <h3 class="text-white">Misi</h3>
+                        <ul>
+                            <li>Menyediakan sarana dan prasarana perikanan bagi masyarakat, baik perikanan tangkap maupun perikanan budi daya.</li>
+                            <li>Peningkatan kualitas aparatur pemerintahan desa.</li>
+                            <li>Meningkatkan kualitas sumber daya manusia masyarakat {{$desa_nama}} melalui pelatihan-pelatihan di bidang perikanan.</li>
+                            <li>Penguatan kelembagaan kelompok masyarakat.</li>
+                            <li>Pengembangan ekonomi masyarakat.</li>
+                            <li>Meningkatkan kualitas layanan bidang pemerintahan.</li>
+                            <li>Membangun sarana dan prasarana kehidupan sosial masyarakat.</li>
+                        </ul>
         </div>
     </div>
-    <div class="col-md-4 text-white">
+    <div class="col-md-8 text-white">
         <div class="card p-3" style="background-color: rebeccapurple;">
-            <h1 class="text-white">Keterangan Desa</h1>
-            <p class="text-justify">Desa Tasik Serai Barat adalah Desa yang berada di wilayah kecamatan Mandau kabupaten Bengkalis, kemudian menjadi kecamatan pinggir kabupaten Bengkalis. Desa Tasik Serai Barat berdiri pada tahun 1930 sebelum merdeka sudah terbentuk kepenghuluan</p>
+            <h3 class="text-white">Keterangan Desa</h3>
+                        <p class="text-justify">{{$desa_nama}} terletak di Kecamatan Soropia, Kabupaten Konawe, Sulawesi Tenggara. Desa ini dikenal dengan keindahan alamnya yang mempesona, terutama pesona bawah laut yang menjadi daya tarik wisatawan. Sebagai salah satu desa di pesisir Sulawesi Tenggara, masyarakat Bajo Indah sebagian besar berprofesi sebagai nelayan. Selain itu, desa ini juga mulai mengembangkan sektor pariwisata bahari, dengan menyediakan fasilitas untuk kegiatan snorkeling dan diving. {{$desa_nama}} juga memiliki berbagai kegiatan budaya yang menarik, seperti festival tahunan dan pertunjukan seni lokal. Selain itu, desa ini juga terkenal dengan produk kerajinan tangan yang unik dan berkualitas tinggi.</p>
+                        
         </div>
     </div>
-    <div class="col-md-4">
+    {{-- <div class="col-md-4">
         <div class="card p-3" style="background-color: rebeccapurple;">
             <img src="{{ URL::to('/') }}/img/desa1.jpeg" alt="Tasik Serai Barat" class="img-fluid rounded mb-3">
             <img src="{{ URL::to('/') }}/img/desa2.jpeg" alt="Tasik Serai Barat" class="img-fluid rounded">
         </div>
-    </div>
+    </div> --}}
 </div>
 <div class="row">
     <div class="col-md">
