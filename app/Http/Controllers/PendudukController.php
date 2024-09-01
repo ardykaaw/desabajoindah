@@ -140,8 +140,9 @@ class PendudukController extends Controller
     public function destroy(Penduduk $penduduk)
     {
         $penduduk->delete();
-        return redirect()->back()->with('success','Penduduk berhasil diperbarui');
+        return redirect()->back()->with('success','Penduduk berhasil dihapus');
     }
+    
     /**
      * Cetak daftar penduduk.
      *
@@ -155,5 +156,4 @@ class PendudukController extends Controller
         // Kembali ke view untuk mencetak data
         return view('penduduk.cetak', compact('penduduks'));
     }
-
 }

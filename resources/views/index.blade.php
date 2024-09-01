@@ -29,19 +29,85 @@
     .animate-up:hover {
         top: -5px;
     }
+    
+    /* .masthead {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        #bgvideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 0;
+        }
+
+        .masthead .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .masthead-heading {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 2s ease-in-out;
+        }
+
+        .masthead-subheading {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        .masthead img {
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+        } */
+
+    
 </style>
 @endsection
 
 @section('header')
-<h1 class="text-white text-muted" style="font-size: 40px;">SELAMAT DATANG</h1>
-<h2 class="text-lead text-white">DESA {{ Str::upper($desa_nama) }}</h2> <!-- Perbaikan penulisan Str::upper -->
-<marquee behavior="scroll" direction="" style="border: 2px solid white;">
-    <h2 class="text-lead text-white">DESA {{ Str::upper($desa_nama) }} KECAMATAN {{ Str::upper($desa->nama_kecamatan) }} KABUPATEN {{ Str::upper($desa->nama_kabupaten) }}</h2>
-</marquee>
-<div class="d-flex justify-content-center text-white">
-    <div id="clock" style="margin-right: 5px;"></div>
-    <div id="date"></div>
-</div>
+<header id="home" class="masthead">
+    {{-- <div class="overlay"></div>
+    <video autoplay loop muted playsinline id="bgvideo">
+        <source src="{{ url('img/bgvideo.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video> --}}
+    <div class="content">
+        <img src="{{ asset('storage/logo2.png') }}" width="150px" class="mb-5" alt="Logo Konawe">
+        <h1 class="masthead-heading text-uppercase mb-0">Selamat Datang</h1>
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <marquee>
+            <p class="masthead-subheading font-weight-light mb-0 text-white">{{$desa_nama}} Kecamatan Soropia Kabupaten Konawe</p>
+        </marquee>
+        <div class="d-flex justify-content-center text-white">
+            <div id="clock" style="margin-right: 5px;"></div>
+            <div id="date"></div>
+        </div>
+    </div>
+</header>
 @endsection
 
 @section('content')
