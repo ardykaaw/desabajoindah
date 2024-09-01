@@ -68,19 +68,10 @@
                     <span class="nav-link-inner--text">Beranda</span>
                 </a>
             </li>
-        </ul>
-        <hr class="my-3">
-        <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link @if (Request::segment(1) == 'penduduk' || Request::segment(1) == 'tambah-penduduk') active @endif" href="{{ route('penduduk.index') }}">
+                <a class="nav-link @if (Request::segment(1) == 'penduduk') active @endif" href="{{ route('penduduk.index') }}">
                     <i class="fas fa-users text-info"></i>
                     <span class="nav-link-inner--text">Penduduk</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link @if (Request::segment(1) == 'dusun' || Request::segment(1) == 'tambah-dusun') active @endif" href="{{ route('dusun.index') }}">
-                    <i class="fas fa-map-marker-alt text-yellow"></i>
-                    <span class="nav-link-inner--text">Dusun</span>
                 </a>
             </li>
             {{-- <li class="nav-item">

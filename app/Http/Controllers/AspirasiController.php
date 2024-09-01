@@ -9,19 +9,24 @@ class AspirasiController extends Controller
 {
     public function index()
     {
-        $aspirasi = Aspirasi::latest()->paginate(10);
-        return view('home', compact('aspirasi'));
+        $aspirasis = Aspirasi::latest()->paginate(10);
+        return view('aspirasi.index', compact('aspirasis'));
     }
 
-    public function submit(Request $request)
+    public function create()
     {
-        $request->validate([
+        return view('aspirasi.create'); // Pastikan view ini ada
+    }
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
             'nama' => 'required|string|max:255',
             'aspirasi' => 'required|string',
         ]);
 
-        Aspirasi::create($request->all());
+        Aspirasi::create($validatedData);
 
-        return redirect()->back()->with('success', 'Aspirasi Anda telah terkirim.');
+        return redirect()->route('aspirasi.index')->with('success', 'Aspirasi berhasil ditambahkan.');
     }
 }
