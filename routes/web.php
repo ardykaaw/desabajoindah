@@ -17,7 +17,8 @@ use App\Http\Controllers\{
     CetakSuratController,
     IsiSuratController,
     VideoController,
-    GrafikController
+    GrafikController,
+    PetaController
 };
 use Illuminate\Support\Str;
 
@@ -35,7 +36,7 @@ use Illuminate\Support\Str;
 // Rute Publik
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/peta', 'PetaController@index')->name('peta.index');
+Route::get('/peta', [PetaController::class, 'index'])->name('peta.index');
 Route::get('/laporan-apbdes', [AnggaranRealisasiController::class, 'laporan_apbdes'])->name('laporan-apbdes');
 Route::get('/layanan-surat', [SuratController::class, 'layanan_surat'])->name('layanan-surat');
 Route::get('/pemerintahan-desa', [PemerintahanDesaController::class, 'pemerintahan_desa'])->name('pemerintahan-desa');
