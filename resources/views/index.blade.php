@@ -34,9 +34,9 @@
 
 @section('header')
 <h1 class="text-white text-muted" style="font-size: 40px;">SELAMAT DATANG</h1>
-<!-- <h2 class="text-lead text-white">DESA {{ Str::upper({{$desa_nama}}) }}</h2> -->
+<h2 class="text-lead text-white">DESA {{ Str::upper($desa_nama) }}</h2> <!-- Perbaikan penulisan Str::upper -->
 <marquee behavior="scroll" direction="" style="border: 2px solid white;">
-    <h2 class="text-lead text-white">DESA {{ Str::upper({{$desa_nama}}) }} KECAMATAN {{ Str::upper($desa->nama_kecamatan) }} KABUPATEN {{ Str::upper($desa->nama_kabupaten) }}</h2>
+    <h2 class="text-lead text-white">DESA {{ Str::upper($desa_nama) }} KECAMATAN {{ Str::upper($desa->nama_kecamatan) }} KABUPATEN {{ Str::upper($desa->nama_kabupaten) }}</h2>
 </marquee>
 <div class="d-flex justify-content-center text-white">
     <div id="clock" style="margin-right: 5px;"></div>
@@ -119,7 +119,8 @@
     </div>
 </section>
 @endif
-<!-- <div class="card shadow h-100 mb-5" style="margin-top:100px">
+<!-- Perbaikan komentar Blade: -->
+{{-- <div class="card shadow h-100 mb-5" style="margin-top:100px">
     <div class="card-header">
         <div class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-between text-center text-lg-left">
             <div class="mb-1">
@@ -134,7 +135,7 @@
     <div class="card-body bg-default text-white">
         @include('anggaran-realisasi.grafik-apbdes')
     </div>
-</div> -->
+</div> --}}
 @if ($berita->count() > 0)
 <section class="mb-5 mt-7">
     <div class="row">
@@ -233,21 +234,23 @@
     </div>
     <div class="row justify-content-center">
         @foreach ($galleries as $key => $item)
-        @if ($key < 3) @if ($item['jenis']==1) <div class="col-lg-4 col-md-6 mb-3 img-scale-up">
-            <a href="{{ url(Storage::url($item['gambar'])) }}" data-fancybox data-caption="{{ $item['caption'] }}">
-                <img class="mw-100" src="{{ url(Storage::url($item['gambar'])) }}" alt="">
-            </a>
-    </div>
-    @else
-    <div class="col-lg-4 col-md-6 mb-3 img-scale-up">
-        <a href="https://www.youtube.com/watch?v={{ $item['id'] }}" data-fancybox data-caption="{{ $item['caption'] }}">
-            <i class="fas fa-play fa-2x" style="position: absolute; top:43%; left:46%;"></i>
-            <img class="mw-100" src="{{ $item['gambar'] }}" alt="">
-        </a>
-    </div>
-    @endif
-    @endif
-    @endforeach
+        @if ($key < 3) 
+            @if ($item['jenis']==1)
+                <div class="col-lg-4 col-md-6 mb-3 img-scale-up">
+                    <a href="{{ url(Storage::url($item['gambar'])) }}" data-fancybox data-caption="{{ $item['caption'] }}">
+                        <img class="mw-100" src="{{ url(Storage::url($item['gambar'])) }}" alt="">
+                    </a>
+                </div>
+            @else
+                <div class="col-lg-4 col-md-6 mb-3 img-scale-up">
+                    <a href="https://www.youtube.com/watch?v={{ $item['id'] }}" data-fancybox data-caption="{{ $item['caption'] }}">
+                        <i class="fas fa-play fa-2x" style="position: absolute; top:43%; left:46%;"></i>
+                        <img class="mw-100" src="{{ $item['gambar'] }}" alt="">
+                    </a>
+                </div>
+            @endif
+        @endif
+        @endforeach
     </div>
     @if (count($galleries) > 6)
     <div class="text-center">

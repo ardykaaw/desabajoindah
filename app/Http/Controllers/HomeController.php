@@ -51,7 +51,7 @@ class HomeController extends Controller
             return strlen($a['created_at']) <=> strlen($b['created_at']);
         });
 
-        return view('home', compact('surat', 'desa', 'gallery', 'berita', 'pemerintahan_desa', 'galleries', 'aspirasi'));
+        return view('index', compact('surat', 'desa', 'gallery', 'berita', 'pemerintahan_desa', 'galleries', 'aspirasi'));
     }
 
     public function dashboard()

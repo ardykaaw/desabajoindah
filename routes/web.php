@@ -20,6 +20,8 @@ use App\Http\Controllers\DusunController;
 
 Route::get('/', [AspirasiController::class, 'index'])->name('home.index');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/index', [HomeController::class, 'index'])->name('index');
+
 
 Route::get('/laporan-apbdes', 'AnggaranRealisasiController@laporan_apbdes')->name('laporan-apbdes');
 Route::get('/layanan-surat', 'SuratController@layanan_surat')->name('layanan-surat');
@@ -38,6 +40,7 @@ Route::get('/anggaran-realisasi-cart', 'AnggaranRealisasiController@cart')->name
 Route::post('/cetak-surat/{id}/{slug}', 'CetakSuratController@store')->name('cetak-surat.store');
 Route::get('/penduduk/cetak', [PendudukController::class, 'cetakPenduduk'])->name('penduduk.cetak');
 Route::get('/dusun/{id}', [DusunController::class, 'show'])->name('dusun.show');
+Route::get('/penduduk', [PendudukController::class, 'index'])->name('penduduk.index');
 
 
 
