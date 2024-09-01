@@ -18,9 +18,12 @@ use App\Http\Controllers\DusunController;
 */
 
 
-Route::get('/', [AspirasiController::class, 'index'])->name('home.index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/index', [HomeController::class, 'index'])->name('index');
+// Menambahkan route untuk halaman peta
+Route::get('/peta', 'PetaController@index')->name('peta.index');
+
 
 
 Route::get('/laporan-apbdes', 'AnggaranRealisasiController@laporan_apbdes')->name('laporan-apbdes');
@@ -110,8 +113,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/chart-surat/{id}', 'SuratController@chartSurat')->name('chart-surat');
 });
 
-Route::post('/aspirasi', [AspirasiController::class, 'submit'])->name('aspirasi.submit');
-Route::get('/', [AspirasiController::class, 'index'])->name('home.index');
 
 Route::fallback(function () {
     abort(404);
