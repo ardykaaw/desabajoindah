@@ -122,11 +122,12 @@ $desa = App\Desa::find(1);
                                     <i class="fas fa-fw fa-chart-pie text-info"></i>
                                     <span class="nav-link-inner--text">Statistik Penduduk</span>
                                 </a>
+
                                 <a class="dropdown-item @if (Request::segment(1) == 'peta') active @endif" href="{{ route('peta.index') }}">
                                     <i class="fas fa-fw fa-map text-info"></i>
                                     <span class="nav-link-inner--text">Peta</span>
                                 </a>
-                                
+
                                 {{-- <a class="dropdown-item @if (Request::segment(1) == 'laporan-apbdes') active @endif" href="{{ route('laporan-apbdes') }}">
                                     <i class="fas fa-fw fa-money-check-alt text-success"></i>
                                     <span class="nav-link-inner--text">Laporan APBDes</span>
