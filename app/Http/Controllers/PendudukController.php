@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Agama;
 use App\Darah;
 use App\Dusun;
@@ -15,16 +16,10 @@ use Illuminate\Http\Request;
 
 class PendudukController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         $penduduk = Penduduk::latest()->paginate(10);
-        $totalPenduduk = Penduduk::all();
+        $totalPenduduk = Penduduk::count(); // Perbaikan pada penghitungan total penduduk
 
         if ($request->cari) {
             if ($request->cari == "Laki-laki") {
@@ -53,11 +48,6 @@ class PendudukController extends Controller
         return view('penduduk.index', compact('penduduk','totalPenduduk'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('penduduk.create', [
@@ -66,18 +56,11 @@ class PendudukController extends Controller
             'dusun'                         => Dusun::all(),
             'pekerjaan'                     => Pekerjaan::all(),
             'pendidikan'                    => Pendidikan::all(),
-            'pendidikan'                    => Pendidikan::all(),
             'status_hubungan_dalam_keluarga'=> StatusHubunganDalamKeluarga::all(),
             'status_perkawinan'             => StatusPerkawinan::all(),
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(PendudukRequest $request)
     {
         $data = $request->validated();
@@ -85,23 +68,6 @@ class PendudukController extends Controller
         return redirect()->route('penduduk.index')->with('success','Penduduk berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Penduduk  $penduduk
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Penduduk $penduduk)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Penduduk  $penduduk
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Penduduk $penduduk)
     {
         return view('penduduk.edit', [
@@ -110,20 +76,12 @@ class PendudukController extends Controller
             'dusun'                         => Dusun::all(),
             'pekerjaan'                     => Pekerjaan::all(),
             'pendidikan'                    => Pendidikan::all(),
-            'pendidikan'                    => Pendidikan::all(),
             'status_hubungan_dalam_keluarga'=> StatusHubunganDalamKeluarga::all(),
             'status_perkawinan'             => StatusPerkawinan::all(),
             'penduduk'                      => $penduduk,
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Penduduk  $penduduk
-     * @return \Illuminate\Http\Response
-     */
     public function update(PendudukRequest $request, Penduduk $penduduk)
     {
         $data = $request->validated();
@@ -131,29 +89,15 @@ class PendudukController extends Controller
         return redirect()->back()->with('success','Penduduk berhasil diperbarui');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Penduduk  $penduduk
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Penduduk $penduduk)
     {
         $penduduk->delete();
         return redirect()->back()->with('success','Penduduk berhasil dihapus');
     }
-    
-    /**
-     * Cetak daftar penduduk.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function cetakPenduduk()
     {
-        // Ambil semua data penduduk dari database
         $penduduks = Penduduk::all();
-
-        // Kembali ke view untuk mencetak data
         return view('penduduk.cetak', compact('penduduks'));
     }
 }

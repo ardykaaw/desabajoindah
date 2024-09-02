@@ -1,25 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{
-    AspirasiController,
-    HomeController,
-    PendudukController,
-    DusunController,
-    AnggaranRealisasiController,
-    SuratController,
-    PemerintahanDesaController,
-    BeritaController,
-    GalleryController,
-    AuthController,
-    UserController,
-    DesaController,
-    CetakSuratController,
-    IsiSuratController,
-    VideoController,
-    GrafikController,
-    PetaController
-};
+use App\Http\Controllers\AspirasiController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PendudukController;
+use App\Http\Controllers\DusunController;
+use App\Http\Controllers\AnggaranRealisasiController;
+use App\Http\Controllers\SuratController;
+use App\Http\Controllers\PemerintahanDesaController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DesaController;
+use App\Http\Controllers\CetakSuratController;
+use App\Http\Controllers\IsiSuratController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\GrafikController;
+use App\Http\Controllers\PetaController;
+
 use Illuminate\Support\Str;
 
 /*
@@ -52,6 +51,7 @@ Route::get('/anggaran-realisasi-cart', [AnggaranRealisasiController::class, 'car
 Route::post('/cetak-surat/{id}/{slug}', [CetakSuratController::class, 'store'])->name('cetak-surat.store');
 Route::get('/penduduk/cetak', [PendudukController::class, 'cetakPenduduk'])->name('penduduk.cetak');
 Route::get('/dusun/{id}', [DusunController::class, 'show'])->name('dusun.show');
+Route::get('/penduduk', [PendudukController::class, 'index'])->name('penduduk.index');
 Route::get('/penduduk', [PendudukController::class, 'index'])->name('penduduk.index');
 
 // Rute Autentikasi
@@ -117,6 +117,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     // Penduduk
     Route::get('/tambah-penduduk', [PendudukController::class, 'create'])->name('penduduk.create');
     Route::resource('penduduk', PendudukController::class)->except('create', 'show');
+    Route::resource('penduduk', PendudukController::class);
+
     
     // Anggaran Realisasi
     Route::get('/kelompok-jenis-anggaran/{kelompokJenisAnggaran}', [AnggaranRealisasiController::class, 'kelompokJenisAnggaran']);
