@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Agama;
 use App\Darah;
 use App\Dusun;

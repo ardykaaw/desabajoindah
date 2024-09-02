@@ -52,7 +52,6 @@ Route::post('/cetak-surat/{id}/{slug}', [CetakSuratController::class, 'store'])-
 Route::get('/penduduk/cetak', [PendudukController::class, 'cetakPenduduk'])->name('penduduk.cetak');
 Route::get('/dusun/{id}', [DusunController::class, 'show'])->name('dusun.show');
 Route::get('/penduduk', [PendudukController::class, 'index'])->name('penduduk.index');
-Route::get('/penduduk', [PendudukController::class, 'index'])->name('penduduk.index');
 
 // Rute Autentikasi
 Route::group(['middleware' => ['web', 'guest']], function () {
@@ -115,10 +114,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     
     // Penduduk
-    Route::get('/tambah-penduduk', [PendudukController::class, 'create'])->name('penduduk.create');
-    Route::resource('penduduk', PendudukController::class)->except('create', 'show');
     Route::resource('penduduk', PendudukController::class);
-
     
     // Anggaran Realisasi
     Route::get('/kelompok-jenis-anggaran/{kelompokJenisAnggaran}', [AnggaranRealisasiController::class, 'kelompokJenisAnggaran']);
