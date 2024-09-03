@@ -1,5 +1,6 @@
 <?php
 
+use App\Dusun;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AspirasiController;
 use App\Http\Controllers\HomeController;
@@ -114,8 +115,15 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     
     // Penduduk
-    Route::resource('penduduk', PendudukController::class);
-    
+    Route::get('/penduduk', [App\Http\Controllers\PendudukController::class, 'index']);
+    Route::get('/penduduk/create', [App\Http\Controllers\PendudukController::class, 'create'])->name('penduduk.create');
+    Route::get('/penduduk/{penduduk}/edit', [App\Http\Controllers\PendudukController::class, 'edit'])->name('penduduk.edit');
+    Route::delete('/penduduk/{penduduk}', [App\Http\Controllers\PendudukController::class, 'destroy'])->name('penduduk.destroy');
+    Route::get('/penduduk', [PendudukController::class, 'index'])->name('penduduk.index');
+
+
+
+
     // Anggaran Realisasi
     Route::get('/kelompok-jenis-anggaran/{kelompokJenisAnggaran}', [AnggaranRealisasiController::class, 'kelompokJenisAnggaran']);
     Route::get('/detail-jenis-anggaran/{id}', [AnggaranRealisasiController::class, 'show'])->name('detail-jenis-anggaran.show');
@@ -123,9 +131,10 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::resource('anggaran-realisasi', AnggaranRealisasiController::class)->except('create', 'show');
     
     // Dusun
-    Route::get('/tambah-dusun', [DusunController::class, 'create'])->name('dusun.create');
-    Route::resource('dusun', DusunController::class)->except('create', 'show');
-    
+    Route::get('/dusun', [App\Http\Controllers\DusunController::class, 'index']);
+    Route::get('/tambah-dusun', [App\Http\Controllers\DusunController::class, 'create'])->name('dusun.create');
+    Route::resource('dusun', App\Http\Controllers\DusunController::class)->except('create', 'show');
+    Route::get('/dusun', [DusunController::class, 'index'])->name('dusun.index');
     // Chart Surat
     Route::get('/chart-surat/{id}', [SuratController::class, 'chartSurat'])->name('chart-surat');
 });

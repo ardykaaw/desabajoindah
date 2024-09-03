@@ -18,7 +18,7 @@ class PendudukController extends Controller
     public function index(Request $request)
     {
         $penduduk = Penduduk::latest()->paginate(10);
-        $totalPenduduk = Penduduk::count(); // Perbaikan pada penghitungan total penduduk
+        $totalPenduduk = Penduduk::all(); // Perbaikan pada penghitungan total penduduk untuk mengirimkan collection atau objek Eloquent
 
         if ($request->cari) {
             if ($request->cari == "Laki-laki") {
