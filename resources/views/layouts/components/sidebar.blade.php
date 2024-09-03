@@ -105,6 +105,12 @@
                     <span class="nav-link-inner--text">Gallery</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link @if (Request::segment(1) == 'aspirasi') active @endif" href="{{ route('aspirasi.kelola') }}">
+                    <i class="fas fa-comments text-info"></i>
+                    <span class="nav-link-inner--text">Aspirasi</span>
+                </a>
+            </li>
             <!-- <li class="nav-item">
                 <a class="nav-link @if (Request::segment(1) == 'slider') active @endif" href="{{ route('slider.index') }}">
                     <i class="fas fa-images text-purple"></i>
@@ -138,5 +144,6 @@
                 </a>
             </li>
         </ul>
+        
     </div>
 </div>

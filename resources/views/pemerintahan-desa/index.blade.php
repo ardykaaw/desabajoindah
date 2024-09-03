@@ -58,7 +58,10 @@
                         </div>
                     </a>
                     <div class="mt-3">
-                        <a href="{{ route('pemerintahan-desa.edit', $item) }}" class="btn btn-sm btn-success" title="Edit"><i class="fas fa-edit"></i> Edit</a>
+                        <form action="{{ route('pemerintahan-desa.update', $item) }}" method="POST">
+                            @csrf @method('patch')
+                            <a href="{{ route('pemerintahan-desa.edit', $item) }}" class="btn btn-sm btn-success" title="Edit"><i class="fas fa-edit"></i> Edit</a>
+                        </form>
                         <a class="btn btn-sm btn-danger hapus-data" data-nama="{{ $item->judul }}" data-action="{{ route("pemerintahan-desa.destroy", $item) }}" data-toggle="modal" href="#modal-hapus" title="Hapus"><i class="fas fa-trash"></i> Hapus</a>
                     </div>
                 </div>

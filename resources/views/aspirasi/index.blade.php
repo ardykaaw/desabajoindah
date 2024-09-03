@@ -6,43 +6,30 @@
         <div class="col-md-12">
             <div class="card shadow">
                 <div class="card-header bg-primary text-white">
-                    <h2 class="mb-0">Daftar Aspirasi</h2>
+                    <h2 class="mb-0">Tambah Aspirasi</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('aspirasi.create') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-success mb-3">
-                            <i class="fas fa-plus-circle"></i> Tambah Aspirasi
-                        </button>
-                    </form>
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>No.</th>
-                                    <th>Nama</th>
-                                    <th>Aspirasi</th>
-                                    <th>Tanggal</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($aspirasis as $index => $aspirasi)
-                                    <tr>
-                                        <td>{{ $index + 1 }}</td>
-                                        <td><strong>{{ $aspirasi->nama }}</strong></td>
-                                        <td>{{ $aspirasi->aspirasi }}</td>
-                                        <td>{{ $aspirasi->created_at->format('d/m/Y H:i') }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    {{ $aspirasis->links() }}
+                    <!-- Alert untuk pesan sukses -->
                     @if(session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
                         </div>
                     @endif
+
+                    <form action="{{ route('aspirasi.store') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input type="text" class="form-control" id="nama" name="nama" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="aspirasi">Aspirasi</label>
+                            <textarea class="form-control" id="aspirasi" name="aspirasi" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success mb-3">
+                            <i class="fas fa-plus-circle"></i> Tambah Aspirasi
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

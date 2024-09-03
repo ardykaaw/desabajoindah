@@ -168,9 +168,13 @@ $desa = App\Desa::find(1);
                                 <a class="dropdown-item" href="{{ route('gallery.index') }}">
                                     <i class="fas fa-fw fa-images text-orange"></i>Gallery
                                 </a>
-                                <a class="dropdown-item" href="{{ route('slider.index') }}">
-                                    <i class="fas fa-fw fa-images text-purple"></i>Slider
+                                <a class="dropdown-item @if (Request::segment(1) == 'aspirasi') active @endif" href="{{ route('aspirasi.kelola') }}">
+                                    <i class="fas fa-fw fa-comments text-info"></i>
+                                    <span class="nav-link-inner--text">Aspirasi</span>
                                 </a>
+                                {{-- <a class="dropdown-item" href="{{ route('slider.index') }}">
+                                    <i class="fas fa-fw fa-images text-purple"></i>Slider
+                                </a> --}}
                                 <a class="dropdown-item" href="{{ route('profil-desa') }}">
                                     <i class="fas fa-fw fa-users text-info"></i> Profil Desa
                                 </a>
