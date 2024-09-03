@@ -140,7 +140,10 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 });
 
 // Fallback Route
-Route::fallback(fn() => abort(404));
+Route::fallback(function() {
+    abort(404);
+});
+
 
 Route::get('/aspirasi', [AspirasiController::class, 'index'])->name('aspirasi.index');
 Route::get('/aspirasi/create', [AspirasiController::class, 'create'])->name('aspirasi.create');
