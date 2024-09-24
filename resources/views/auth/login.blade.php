@@ -19,7 +19,7 @@ $desa = App\Desa::find(1);
    <title>Login</title>
 
    <!-- Favicon -->
-   <link href="{{ asset('storage/sultra.png') }}" rel="icon" type="image/png">
+   <link href="{{ asset('storage/logo2.png') }}" rel="icon" type="image/png">
 
 
 

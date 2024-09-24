@@ -34,8 +34,7 @@ $desa = App\Desa::find(1);
     <title>@yield('title')</title>
 
     <!-- Favicon -->
-    
-    <link href="{{ asset('storage/sultra.png') }}" rel="icon" type="image/png">
+    <link rel="icon" href="{{ asset('storage/logo2.png') }}" type="image/png">
 
 
 
@@ -220,7 +219,7 @@ $desa = App\Desa::find(1);
                         </div>
                         <div class="copyright text-center text-xl-left text-white">
                             <i class="fas fa-envelope mr-1"></i>
-                            <a href="mailto:nazriakir21@gmail" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: white">contoh@gmail.com</a>
+                            <a href="mailto:nazriakir21@gmail" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: white">desabajoindahh@gmail.com</a>
                         </div>
                         <div class="copyright text-center text-xl-left text-white mt-2">
                             © {{ date('Y') }} <a href="{{ url('') }}" class="font-weight-bold ml-1" target="_blank">{{$desa_nama}}</a>

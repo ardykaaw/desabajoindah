@@ -14,6 +14,7 @@
         font-family: fontAwesome;
     }
 
+    
     .progress-label>span {
         color: white;
     }

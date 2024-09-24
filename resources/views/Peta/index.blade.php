@@ -5,6 +5,15 @@
 <meta name="description" content="Peta {{$desa_nama}}, Kecamatan Soropia, Kabupaten {{ $desa->nama_kabupaten }}">
 
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<!-- Tambahkan Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<style>
+    #map { height: 450px; }
+    .tematik-image {
+        width: 100%;
+        margin-top: 20px;
+    }
+</style>
 @endsection
 
 @section('header')
@@ -21,10 +30,11 @@
             <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
             <div class="divider-custom-line"></div>
         </div>
-        <!-- Google Maps -->
-        <div class="map-responsive">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7942.769748597126!2d122.6437658!3d-3.9252694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d98eb0da86b56af%3A0x5f28f06e564406f2!2sDesa%20Bajo%20Indah!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+        <!-- Leaflet Map -->
+        <div id="map"></div>
+        
+        <!-- Gambar Tematik -->
+        <img src="{{ asset('img/tematik.png') }}" alt="Gambar Tematik" class="tematik-image">
         
         <!-- Maps for Dusun -->
         {{-- <div class="row mt-4">
@@ -70,5 +80,50 @@
 @endsection
 
 @push('scripts')
-<!-- Tambahkan skrip lain jika diperlukan -->
+<!-- Tambahkan Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Koordinat Desa Bajo Indah
+        var desaLat = -3.9202694;
+        var desaLng = 122.6407658;
+
+        // Geser peta sedikit ke kanan dan ke bawah dengan menambahkan offset ke longitude dan latitude
+        var offsetLng = 0.005; // Sesuaikan nilai ini untuk menggeser lebih jauh ke kanan
+        var offsetLat = -0.002; // Sesuaikan nilai ini untuk menggeser lebih jauh ke bawah
+        var mapCenterLng = desaLng + offsetLng;
+        var mapCenterLat = desaLat + offsetLat;
+
+        var map = L.map('map', {
+            zoomControl: false,
+            attributionControl: false
+        }).setView([mapCenterLat, mapCenterLng], 16); // Set view dengan koordinat yang sudah digeser
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Koordinat marker Desa Bajo Indah (disesuaikan untuk berada di atas pemukiman)
+        var markerLat = -3.924; // Geser lebih jauh ke bawah
+        var markerLng = 122.646; // Geser lebih jauh ke kanan
+
+        // Tambahkan marker di lokasi Desa Bajo Indah
+        var marker = L.marker([markerLat, markerLng]).addTo(map)
+            .bindPopup('Desa Bajo Indah')
+            .openPopup();
+
+        // Fungsi untuk melakukan zoom ke lokasi setelah beberapa detik
+        function zoomToLocation() {
+            map.setView([mapCenterLat, mapCenterLng], 16, {
+                animate: true,
+                duration: 2
+            });
+        }
+
+        // Set timeout untuk memulai zoom setelah beberapa detik (misalnya 5 detik)
+        setTimeout(function() {
+            zoomToLocation();
+        }, 5000); // 5 detik
+    });
+</script>
 @endpush
